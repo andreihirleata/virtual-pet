@@ -46,3 +46,15 @@ describe("walk test", () => {
     expect(secondPet.fitness).toEqual(10);
   });
 });
+
+describe("feed test", () => {
+  it("expect hunger to decrease when pet is fed & hunger no to drop below 0", () => {
+    firstPet.feed();
+    expect(firstPet.hunger).toEqual(12);
+    secondPet.feed();
+    secondPet.feed();
+    secondPet.feed();
+    secondPet.feed();
+    expect(secondPet.hunger).toEqual(0);
+  });
+});
