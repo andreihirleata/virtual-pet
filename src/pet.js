@@ -5,6 +5,9 @@ const FITNESS_INCREMENT = 4;
 const MAX_FITNESS = 10;
 const HUNGER_REDUCTION = 3;
 const MIN_HUNGER = 0;
+const FITNESS_THRESHOLD = 3;
+const HUNGER_THRESHOLD = 5;
+
 class Pet {
   constructor(name, age = 0, hunger = 0, fitness = 10) {
     this.name = name;
@@ -25,10 +28,19 @@ class Pet {
   }
 
   feed() {
-    if ((this.hunger - HUNGER_REDUCTION) <= MIN_HUNGER) {
+    if (this.hunger - HUNGER_REDUCTION <= MIN_HUNGER) {
       this.hunger = 0;
-    } 
-    else this.hunger -= HUNGER_REDUCTION;
+    } else this.hunger -= HUNGER_REDUCTION;
+  }
+
+  checkUp() {
+    if (this.fitness <= FITNESS_THRESHOLD && this.hunger >= HUNGER_THRESHOLD) {
+      return "I am hungry AND I need a walk";
+    } else if (this.fitness <= FITNESS_THRESHOLD) {
+      return "I need a walk";
+    } else if (this.hunger >= HUNGER_THRESHOLD) {
+      return "I am hungry";
+    } else return "I feel great!";
   }
 }
 
