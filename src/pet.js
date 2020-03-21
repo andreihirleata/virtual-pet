@@ -7,6 +7,9 @@ const HUNGER_REDUCTION = 3;
 const MIN_HUNGER = 0;
 const FITNESS_THRESHOLD = 3;
 const HUNGER_THRESHOLD = 5;
+const MIN_FITNESS = 0;
+const MAX_HUNGER = 10;
+const MAX_AGE = 30;
 
 class Pet {
   constructor(name, age = 0, hunger = 0, fitness = 10) {
@@ -15,6 +18,11 @@ class Pet {
     this.hunger = hunger;
     this.fitness = fitness;
   }
+
+   isAlive() {
+    return this.age < MAX_AGE && this.hunger < MAX_HUNGER && this.fitness > MIN_FITNESS;
+  }
+
   growUp() {
     this.age += AGE_INCREMENT;
     this.hunger += HUNGER_INCREMENT;
@@ -42,6 +50,7 @@ class Pet {
       return "I am hungry";
     } else return "I feel great!";
   }
+
 }
 
 module.exports = Pet;

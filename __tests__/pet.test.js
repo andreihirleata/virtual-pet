@@ -1,17 +1,17 @@
 /* eslint-disable */
 const Pet = require("../src/pet");
 
-  const firstPet = new Pet("Fido", 0, 10, 10);
-  const secondPet = new Pet("Gojira", 0, 0, 0);
+const firstPet = new Pet("Fido", 0, 10, 10);
+const secondPet = new Pet("Gojira", 0, 0, 0);
 
-  beforeEach(() => {
-    firstPet.age = 0
-    firstPet.hunger = 10;
-    firstPet.fitness = 10;
-    secondPet.age = 0;
-    secondPet.hunger = 0;
-    secondPet.fitness = 0;
-  });
+beforeEach(() => {
+  firstPet.age = 0;
+  firstPet.hunger = 10;
+  firstPet.fitness = 10;
+  secondPet.age = 0;
+  secondPet.hunger = 0;
+  secondPet.fitness = 0;
+});
 
 describe("constructor", () => {
   it("returns an object", () => {
@@ -79,5 +79,14 @@ describe("checkUp test", () => {
     secondPet.growUp();
     secondPet.growUp();
     expect(secondPet.checkUp()).toBe("I am hungry AND I need a walk");
+  });
+});
+
+describe("isAlive test", () => {
+  it("expects pet to die if age is more than 30 or hunger reaches to or fitness gets to 0", () => {
+    expect(firstPet.isAlive()).toEqual(false);
+    secondPet.fitness = 5;
+    secondPet.hunger = 5;
+    expect(secondPet.isAlive()).toEqual(true);
   });
 });
