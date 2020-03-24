@@ -9,11 +9,12 @@ const FITNESS_THRESHOLD = 3;
 const HUNGER_THRESHOLD = 5;
 
 class Pet {
-  constructor(name, age = 0, hunger = 0, fitness = 10) {
+  constructor(name, age = 0, hunger = 0, fitness = 10, children = []) {
     this.name = name;
     this.age = age;
     this.hunger = hunger;
     this.fitness = fitness;
+    this.children = children;
   }
 
   get isAlive() {
@@ -66,6 +67,13 @@ class Pet {
     } else if (this.hunger >= HUNGER_THRESHOLD) {
       return "I am hungry";
     } else return "I feel great!";
+  }
+  haveBaby(child) {
+    this.children.push(new Pet(child));
+  }
+
+  adoptChild(child) {
+    this.children.push(child);
   }
 }
 

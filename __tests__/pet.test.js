@@ -101,4 +101,25 @@ describe("isAlive test", () => {
     secondPet.hunger = 5;
     expect(secondPet.isAlive).toEqual(true);
   });
+
+  describe("adoptChild test" , () => {
+    it("expects a pet to be able to adopt a child" , () => {
+      const baby = new Pet("baby");
+      const parent = new Pet("parent");
+      parent.adoptChild(baby);
+      expect(parent.children[0].name).toBe("baby");
+    });
+  });
+
+  describe("haveBaby test" , () => {
+    it("expects a pet to be able to have a baby" , () => {
+      firstPet.haveBaby("pet-rock");
+      expect(firstPet.children[0].name).toBe("pet-rock");
+    });
+    it("expects a parent to be able to feed his child" , () => {
+      firstPet.children[0].hunger = 7;
+      firstPet.children[0].feed();
+      expect(firstPet.children[0].hunger).toEqual(4);
+    });
+  });
 });
