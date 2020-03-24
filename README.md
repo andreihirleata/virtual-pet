@@ -12,5 +12,6 @@ Running the tests
 Run ```npm install --save-dev jest``` command to install Jest  
 Run ```npm test``` in your terminal to run the tests  
 
-#Authors  
+#
+Authors  
 **Andrei Hirleata** as part of the @MCRcodes software development fast-track course
