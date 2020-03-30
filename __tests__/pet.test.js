@@ -1,8 +1,8 @@
 /* eslint-disable */
 const Pet = require("../src/pet");
 
-const firstPet = new Pet("Fido", 0, 10, 10);
-const secondPet = new Pet("Gojira", 0, 0, 0);
+const firstPet = new Pet("Fido");
+const secondPet = new Pet("Gojira");
 
 beforeEach(() => {
   firstPet.age = 0;
